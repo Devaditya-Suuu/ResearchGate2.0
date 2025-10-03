@@ -4,12 +4,14 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import EventCard from "@/components/events/EventCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const sectionsRef = useRef<HTMLDivElement | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (!sectionsRef.current) return;
@@ -55,10 +57,10 @@ export default function Home() {
       <section className="relative overflow-hidden min-h-[82vh] flex items-center">
         <div className="absolute inset-0 -z-10 bg-slate-950" />
         {/* Glow */}
-        <div className="absolute -top-24 -left-24 h-[32rem] w-[32rem] rounded-full bg-blue-700/20 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-indigo-700/10 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 -left-24 h-[32rem] w-[32rem] rounded-full bg-blue-700/20 blur-3xl -z-10" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-indigo-700/10 blur-3xl -z-10" />
 
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -81,18 +83,20 @@ export default function Home() {
               events, collaborations, and publications across domains.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/events"
-                className="rounded-full bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 text-sm font-medium shadow"
+              <button
+                type="button"
+                onClick={() => router.push("/events")}
+                className="rounded-full bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 text-sm font-medium shadow txt-btn"
               >
                 Explore Events
-              </Link>
-              <Link
-                href="/publications"
-                className="rounded-full border border-white/20 hover:bg-white/10 text-white px-8 py-3 text-sm font-medium"
+              </button>
+              <button
+                type="button"
+                onClick={() => router.push("/publications")}
+                className="rounded-full border border-white/20 hover:bg-white/10 text-white px-8 py-3 text-sm font-medium txt-btn"
               >
                 Recent Publications
-              </Link>
+              </button>
             </div>
             {/* Stats */}
             <div className="mt-10 grid grid-cols-3 gap-6">
@@ -194,8 +198,8 @@ export default function Home() {
         <section className="reveal">
           <div className="max-w-7xl mx-auto px-6">
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-r from-blue-700/30 via-indigo-700/20 to-purple-700/30 p-10">
-              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl" />
-              <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl" />
+              <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl -z-10" />
+              <div className="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl -z-10" />
               <h2 className="text-3xl md:text-4xl font-semibold">
                 Become a Member
               </h2>
@@ -205,18 +209,20 @@ export default function Home() {
                 your academic journey.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/sign-up"
+                <button
+                  type="button"
+                  onClick={() => router.push("/sign-up")}
                   className="rounded-full bg-white text-slate-900 hover:bg-slate-100 px-8 py-3 text-sm font-medium"
                 >
-                  Join the Club
-                </Link>
-                <Link
-                  href="/members"
+                  Register for club recruitment
+                </button>
+                <button
+                  type="button"
+                  onClick={() => router.push("/members")}
                   className="rounded-full border border-white/20 text-white hover:bg-white/10 px-8 py-3 text-sm font-medium"
                 >
                   Our Members
-                </Link>
+                </button>
               </div>
             </div>
           </div>

@@ -27,3 +27,8 @@ body {
 .reveal{
   margin-bottom: 5%;
 }
+/* Remove conflicting txt-btn rule to avoid layout/interaction issues */
+/* .txt-btn{ align-content: center; } */
+
+/* Helper class (if ever needed in markup) */
+.bg-decor{ pointer-events: none; }
