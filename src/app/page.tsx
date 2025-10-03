@@ -60,7 +60,7 @@ export default function Home() {
         <div className="pointer-events-none absolute -top-24 -left-24 h-[32rem] w-[32rem] rounded-full bg-blue-700/20 blur-3xl -z-10" />
         <div className="pointer-events-none absolute bottom-0 right-0 h-[28rem] w-[28rem] rounded-full bg-indigo-700/10 blur-3xl -z-10" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center mt-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,9 +101,9 @@ export default function Home() {
             {/* Stats */}
             <div className="mt-10 grid grid-cols-3 gap-6">
               {[
-                { k: "Members", v: "150+" },
+                { k: "Members", v: "70+" },
                 { k: "Papers", v: "45+" },
-                // { k: "Pubs", v: "28" },
+                { k: "Pubs", v: "28" },
               ].map((s) => (
                 <div
                   key={s.k}
