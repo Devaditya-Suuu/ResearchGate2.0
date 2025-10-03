@@ -9,7 +9,7 @@ export default async function EventsPage(){
     { title: 'Freshers event', excerpt: 'A warm welcome party to all the freshers from the family of RG' },
   ];
 
-  const categories = ['Workshops', 'Conferences', 'Seminar Series'];
+  const categories = ['Workshops', 'Conferences', 'Hackathons'];
 
   return (
     <div className="px-6 py-24 max-w-7xl mx-auto text-white">
