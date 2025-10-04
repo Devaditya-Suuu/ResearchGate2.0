@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function MerchandisePage(){
   const items = [
-    { name: 'RG Hoodie', price: 550, desc: 'Premium cotton blend with embroidered logo.', imageUrl: '/merch/hoodie.jpg' },
+    { name: 'RG Hoodie', price: 550, desc: 'Premium cotton blend with embroidered logo.', imageUrl: '/merch/hoodie1.jpg' },
     { name: 'RG Tshirt', price: 550, desc: 'Soft tee with bold printed logo.', imageUrl: '/merch/tshirt.jpg' },
   ];
 
