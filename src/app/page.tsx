@@ -103,7 +103,7 @@ export default function Home() {
               {[
                 { k: "Members", v: "70+" },
                 { k: "Papers", v: "45+" },
-                { k: "Pubs", v: "28" },
+                { k: "Events", v: "10+" },
               ].map((s) => (
                 <div
                   key={s.k}
