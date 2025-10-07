@@ -21,7 +21,7 @@ export const metadata = {
   },
   description:
     "Official site for the college ResearchGate Club: events, members, publications, merchandise, and more.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: { icon: "/icons/favicon.png" },
 };
 
 export default function RootLayout({ children }) {
@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <head>
-          <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon.png"></link>
+          <link rel="icon" href="/icons/favicon.png" sizes="any" />
         </head>
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
