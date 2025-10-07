@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 
 export default function AuthPage(){
-  const [mode, setMode] = useState<'signin' | 'register'>('signin');
+  const [mode, setMode] = useState('signin');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,7 +11,7 @@ export default function AuthPage(){
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true); setError(''); setSuccess('');
     if (mode === 'register') {
@@ -21,7 +21,7 @@ export default function AuthPage(){
         if (!res.ok) throw new Error(data.error || 'Registration failed');
         setSuccess('Account created. You can sign in now.');
         setMode('signin');
-      } catch (err: any) {
+      } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);

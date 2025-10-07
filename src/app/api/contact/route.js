@@ -8,7 +8,7 @@ const schema = z.object({
   message: z.string().min(10).max(2000),
 });
 
-export async function POST(req: Request) {
+export async function POST(req) {
   try {
     const body = await req.json();
     const { name, email, message } = schema.parse(body);
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json({ ok: true });
-  } catch (e: any) {
+  } catch (e) {
     if (e instanceof z.ZodError) {
       return NextResponse.json({ error: e.flatten() }, { status: 422 });
     }

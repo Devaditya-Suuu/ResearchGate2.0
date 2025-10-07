@@ -1,4 +1,4 @@
-import EventCard from '@/components/events/EventCard';
+import EventCard from "../../../components/events/EventCard";
 
 export default async function EventsPage(){
   // TODO: fetch real events
@@ -27,11 +27,11 @@ export default async function EventsPage(){
             ))}
           </div>
           <div className="flex justify-center pt-4">
-            <button className="rounded-md border border-white/20 px-5 py-2 text-sm text-slate-200 hover:bg-white/10">Explore Events</button>
+            <button className="rounded-md border border-white/20 px-5 py-2 text-sm text-slate-200 hover:bg:white/10">Explore Events</button>
           </div>
         </div>
 
-        <aside className="rounded-2xl bg-slate-900/60 dark:bg-slate-800/60 border border-white/10 p-5 h-fit">
+        <aside className="rounded-2xl bg-slate-900/60 dark:bg-slate-800/60 border border:white/10 p-5 h-fit">
           <h3 className="text-sm tracking-widest text-slate-300 mb-4">EVENT CATEGORIES</h3>
           <ul className="space-y-2">
             {categories.map((c) => (

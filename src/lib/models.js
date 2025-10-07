@@ -6,9 +6,7 @@ const UserSchema = new Schema({
   image: { type: String },
   role: { type: String, enum: ['student', 'admin'], default: 'student' },
   password: { type: String },
-}, { timestamps: true });
-
-export const User = models.User || model('User', UserSchema);
+});
 
 const EventSchema = new Schema({
   title: { type: String, required: true },
@@ -17,8 +15,9 @@ const EventSchema = new Schema({
   description: { type: String },
   coverImage: { type: String },
   tags: [{ type: String }]
-}, { timestamps: true });
+});
 
+export const User = models.User || model('User', UserSchema);
 export const Event = models.Event || model('Event', EventSchema);
 
 const PublicationSchema = new Schema({

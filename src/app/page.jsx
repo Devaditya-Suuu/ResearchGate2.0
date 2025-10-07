@@ -5,12 +5,12 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import EventCard from "@/components/events/EventCard";
+import EventCard from "../components/events/EventCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  const sectionsRef = useRef<HTMLDivElement | null>(null);
+  const sectionsRef = useRef(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -179,7 +179,7 @@ export default function Home() {
                 key={i}
                 className="p-5 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur flex flex-col"
               >
-                <h3 className="font-medium mb-2">Exploratory Study #{i + 1}</h3>
+                <h3 className="text-lg font-medium mb-2">Exploratory Study #{i + 1}</h3>
                 <p className="text-xs text-slate-400 flex-1">
                   An abstract preview of the research focus and findings summary.
                 </p>

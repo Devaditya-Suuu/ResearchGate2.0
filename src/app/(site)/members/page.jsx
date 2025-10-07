@@ -1,4 +1,5 @@
-import MemberCard from '@/components/members/MemberCard';
+
+import MemberCard from "../../../components/members/MemberCard";
 
 export default function MembersPage(){
   const members = [
@@ -11,7 +12,7 @@ export default function MembersPage(){
   ];
 
   return (
-    <div className="px-6 py-24 max-w-7xl mx-auto text-white">
+    <div className="px-6 py-24 max-w-7xl mx-auto text:white">
       <header className="mb-10 flex items-end justify-between">
         <div>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">OUR MEMBERS</h1>

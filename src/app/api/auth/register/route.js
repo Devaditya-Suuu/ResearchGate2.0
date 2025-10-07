@@ -1,9 +1,10 @@
+export const runtime = 'nodejs';
 import { NextResponse } from 'next/server';
-import { dbConnect } from '@/lib/db';
-import { User } from '@/lib/models';
-import bcrypt from 'bcrypt';
+import { dbConnect } from '../../../../lib/db';
+import { User } from '../../../../lib/models';
+import bcrypt from 'bcryptjs';
 
-export async function POST(req: Request) {
+export async function POST(req) {
   try {
     const body = await req.json();
     const { name, email, password } = body;
@@ -14,7 +15,7 @@ export async function POST(req: Request) {
     const hash = await bcrypt.hash(password, 10);
     await User.create({ name, email, password: hash });
     return NextResponse.json({ success: true });
-  } catch (e: any) {
-    return NextResponse.json({ error: e.message }, { status: 500 });
+  } catch (e) {
+    return NextResponse.json({ error: e.message || 'Server error' }, { status: 500 });
   }
 }

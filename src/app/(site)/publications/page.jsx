@@ -7,20 +7,12 @@ export default function PublicationsPage(){
     link: '#'
   }));
 
-//   const tags = ['All', 'AI', 'Biotech', 'Security', 'Systems'];
-
   return (
     <div className="max-w-7xl mx-auto px-6 py-24 text-white">
       <header className="mb-10">
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">RECENT PUBLICATIONS</h1>
         <div className="h-1 w-32 bg-blue-600 mt-4 rounded-full" />
       </header>
-
-      {/* <div className="flex flex-wrap items-center gap-3 mb-8">
-        {tags.map((t, i) => (
-          <button key={t} className={`text-xs px-3 py-1.5 rounded-full border ${i===0 ? 'bg-blue-600 border-blue-600' : 'border-white/15 bg-slate-900/60'} hover:bg-white/10`}>{t}</button>
-        ))}
-      </div> */}
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((p, i) => (

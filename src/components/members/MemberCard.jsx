@@ -3,15 +3,19 @@ import { motion } from 'framer-motion';
 import { Linkedin, Github, Twitter } from 'lucide-react';
 import Image from 'next/image';
 
-type Props = {
-  name: string;
-  role: string;
-  initials?: string;
-  imageUrl?: string; // optional avatar image
-};
-
-export default function MemberCard({ name, role, initials, imageUrl }: Props) {
-  const initialsText = initials ?? name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+/**
+ * MemberCard component displays a team member's information including their name, role, and social links.
+ *
+ * @param {Object} props - Component props
+ * @param {string} props.name - Name of the team member
+ * @param {string} props.role - Role of the team member
+ * @param {string} [props.initials] - Initials of the team member, optional
+ * @param {string} [props.imageUrl] - Image URL for the team member's avatar, optional
+ *
+ * @returns {JSX.Element} The rendered component
+ */
+export default function MemberCard({ name, role, initials, imageUrl }) {
+  const initialsText = (initials ?? name.split(' ').map((w) => w[0]).join('').slice(0,2).toUpperCase());
   return (
     <motion.div whileHover={{ y: -8 }} className="group rounded-2xl bg-slate-900/60 dark:bg-slate-800/60 text-white border border-white/10 shadow-sm overflow-hidden flex flex-col">
       <div className="relative h-40 w-full bg-gradient-to-br from-blue-600/30 to-indigo-600/20">

@@ -7,7 +7,7 @@ export default function ContactPage() {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
-  async function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e) {
     e.preventDefault();
     setLoading(true);
     setSuccess("");
@@ -41,7 +41,7 @@ export default function ContactPage() {
           <div>
             <label className="block text-sm font-medium mb-1 text-white">Name</label>
             <input
-              className="w-full rounded-md border border-white/10 bg-white/80 dark:bg-slate-800/80 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-white/10 bg:white/80 dark:bg-slate-800/80 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Your name"
               value={form.name}
               onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
@@ -54,7 +54,7 @@ export default function ContactPage() {
             <label className="block text-sm font-medium mb-1 text-white">Email</label>
             <input
               type="email"
-              className="w-full rounded-md border border-white/10 bg-white/80 dark:bg-slate-800/80 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-white/10 bg:white/80 dark:bg-slate-800/80 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="you@college.edu"
               value={form.email}
               onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
@@ -62,10 +62,10 @@ export default function ContactPage() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1 text-white">Message</label>
+            <label className="block text-sm font-medium mb-1 text:white">Message</label>
             <textarea
               rows={5}
-              className="w-full rounded-md border border-white/10 bg-white/80 dark:bg-slate-800/80 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-white/10 bg:white/80 dark:bg-slate-800/80 px-3 py-2 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Write your message..."
               value={form.message}
               onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
