@@ -33,9 +33,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        {/* <head>
+        <head>
           <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon.png"></link>
-        </head> */}
+        </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
         >
