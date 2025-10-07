@@ -1,12 +1,13 @@
 "use client";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, Sun, Moon } from 'lucide-react';
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';
 import { UserButton, SignedIn, SignedOut } from '@clerk/nextjs';
+
 
 const links = [
   { href: '/', label: 'Home' },
@@ -22,6 +23,8 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -45,7 +48,7 @@ export function Navbar() {
             <Link key={l.href} href={l.href} className={clsx('relative font-medium text-sm hover:text-blue-600 transition', pathname === l.href && 'text-blue-600')}>{l.label}</Link>
           ))}
           <button onClick={()=> setTheme(theme === 'dark' ? 'light' : 'dark')} className="p-2 rounded hover:bg-black/5 dark:hover:bg-white/10" aria-label="Toggle theme">
-            {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
+            {mounted ? (theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>) : null}
           </button>
           <SignedOut>
             <Link href="/sign-in" className="rounded-full bg-blue-600 text-white px-4 py-2 text-sm font-medium hover:bg-blue-500 transition">Sign In</Link>
@@ -56,7 +59,7 @@ export function Navbar() {
         </div>
         <div className="flex items-center gap-2 md:hidden">
           <button onClick={()=> setTheme(theme === 'dark' ? 'light' : 'dark')} className="p-2 rounded hover:bg-black/5 dark:hover:bg-white/10" aria-label="Toggle theme">
-            {theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>}
+            {mounted ? (theme === 'dark' ? <Sun size={18}/> : <Moon size={18}/>) : null}
           </button>
           <button onClick={() => setOpen(o => !o)} className="p-2 rounded hover:bg-black/5 dark:hover:bg-white/10"><Menu size={24}/></button>
         </div>
