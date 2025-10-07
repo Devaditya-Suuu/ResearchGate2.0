@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+export const runtime = 'nodejs';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -12,28 +13,26 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { name, email, message } = schema.parse(body);
 
-    // Send email via Resend
+    // Send via Resend only
     const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) return NextResponse.json({ error: 'Missing RESEND_API_KEY' }, { status: 500 });
-
+    if (!apiKey) throw new Error('Missing RESEND_API_KEY');
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${apiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'ResearchGate Club <noreply@sitresearchgate.com>',
+        from: 'ResearchGate Club <noreply@sitresearchgate.in>',
         to: ['sitresearchgate@gmail.com'],
         subject: `Contact Form: ${name}`,
         reply_to: email,
         text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
       }),
     });
-
     if (!res.ok) {
       const err = await res.text();
-      return NextResponse.json({ error: 'Failed to send email', details: err }, { status: 500 });
+      throw new Error(`Resend failed: ${err}`);
     }
 
     return NextResponse.json({ ok: true });
